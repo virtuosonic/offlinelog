@@ -3,6 +3,8 @@
 constexpr int normal_interval = 10000;
 constexpr int error_interval = 2000;
 
+using namespace std::literals;
+
 Ping::Ping(QObject *parent) :
 	QObject{parent},
 	m_hostName{"8.8.8.8"},
@@ -29,34 +31,10 @@ void Ping::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
 {
 	qDebug() << "Ping finished with exit code:" << exitCode
 			 << "and exit status:" << exitStatus;
-	if (exitStatus == QProcess::NormalExit && exitCode == 0)
-	{
-		qDebug() << "Host" << m_hostName << "is reachable.";
-		if (!m_isConnected)
-		{
-			m_lastChange = QDateTime::currentDateTime();
-			m_isConnected = true;
-			m_errorCount = 0;
-			emit connectionChanged(m_isConnected, m_lastChange);
-		}
-		m_timer->start(normal_interval);
-	}
-	else
-	{
-		qDebug() << "Host" << m_hostName << "is not reachable.";
-		m_errorCount++;
-		if (m_isConnected)
-		{
-			m_isConnected = false;
-			m_lastChange = QDateTime::currentDateTime();
 
-		}
-		if (m_errorCount > 4)
-		{
-			emit connectionChanged(m_isConnected, m_lastChange);
-		}
-		m_timer->start(error_interval);
-	}
+	auto ok = exitStatus == QProcess::NormalExit && exitCode == 0;
+	emit online(ok);
+	m_timer->start(ok ? 10s : 2s);
 
 }
 
