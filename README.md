@@ -1,5 +1,6 @@
 # OfflineLog
 
+![Screenshot](https://github.com/virtuosonic/offlinelog/blob/master/screenshot.jpg)
 A cross-platform desktop application for monitoring and logging internet connectivity status. OfflineLog continuously checks your internet connection and maintains a detailed log of online/offline periods with timestamps.
 
 ## Features
