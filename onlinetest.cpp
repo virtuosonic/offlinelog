@@ -2,7 +2,9 @@
 
 using namespace std::literals;
 
-const auto gstatic204_url = QUrl("https://www.gstatic.com/generate_204");
+const QUrl gstatic204_url("http://www.gstatic.com/generate_204");
+const QUrl cloudflare204("http://cp.cloudflare.com/generate_204");
+
 
 OnlineTest::OnlineTest(QObject *parent) :
 	QObject{parent},
