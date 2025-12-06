@@ -17,11 +17,14 @@ qt_add_qml_module(appofflinelog
     VERSION 1.0
     QML_FILES
         Main.qml
-		SOURCES ping.h ping.cpp
-		SOURCES onlinetest.h onlinetest.cpp
-		SOURCES errorcounter.h errorcounter.cpp
-		SOURCES offlinelog.h offlinelog.cpp
-		SOURCES logentrymodel.h logentrymodel.cpp
+	SOURCES
+	    ping.h ping.cpp
+		onlinetest.h onlinetest.cpp
+		errorcounter.h errorcounter.cpp
+		offlinelog.h offlinelog.cpp
+		logentrymodel.h logentrymodel.cpp
+	RESOURCES
+	    README.md
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
