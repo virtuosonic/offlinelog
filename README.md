@@ -34,7 +34,7 @@ A cross-platform desktop application for monitoring and logging internet connect
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/offlinelog.git
+   git clone https://github.com/virtuosonic/offlinelog.git
    cd offlinelog
    ```
 
@@ -145,7 +145,7 @@ This project is licensed under the MIT License
 ## Acknowledgments
 
 - Built with [Qt](https://www.qt.io/)
-- Created by Gabriel Espinoza (virtuosonic)
+- Created by Gabriel Espinoza [virtuosonic](http://github.com/virtuosonic)
 
 ## Support
 
